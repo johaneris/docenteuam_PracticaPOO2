@@ -1,12 +1,16 @@
-package com.example.docenteuam.repository;
+package com.example.docenteuam.service;
 
 import com.example.docenteuam.models.Carrera;
+import com.example.docenteuam.repository.CarreraRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CarreraServicio {
 
     private final CarreraRepository repo;
+
     public CarreraServicio(CarreraRepository repo) {
         this.repo = repo;
     }
@@ -15,7 +19,7 @@ public class CarreraServicio {
         return repo.findAll();
     }
 
-    public Carrera findById(long id) {
+    public Carrera findById(Long id) {
         return repo.findById(id).orElse(null);
     }
 
@@ -23,8 +27,7 @@ public class CarreraServicio {
         return repo.save(carrera);
     }
 
-    public void deleteById(long id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
-
 }
